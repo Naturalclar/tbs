@@ -1,4 +1,4 @@
-import { app, BrowserWindow, TouchBar } from "electron";
+import { app, BrowserWindow, TouchBar, globalShortcut } from "electron";
 import { TWEETDECK, YOUTUBE, GITHUB, GMAIL, SLACK } from "./const";
 
 const { TouchBarButton } = TouchBar;
@@ -36,6 +36,7 @@ const GmailButton = new TouchBarButton({
     window.loadURL(GMAIL);
   }
 });
+
 const SlackButton = new TouchBarButton({
   label: "Slack",
   backgroundColor: "#7c3085",
@@ -55,13 +56,28 @@ const touchBar = new TouchBar({
 });
 
 app.once("ready", () => {
+  // Register a 'ControlOrControl+X' shortcut listener.
+  const ret = globalShortcut.register("Control+X", () => {
+    window.isFocused() ? window.hide() : window.show();
+  });
+
+  if (!ret) {
+    console.log("registration failed");
+  }
+
   window = new BrowserWindow({
-    titleBarStyle: "hiddenInset",
+    frame: false,
     width: 1080,
     height: 800,
-    backgroundColor: "#000",
+    backgroundColor: "#0000",
+    transparent: true,
     movable: true
   });
-  window.loadURL(TWEETDECK);
+
   window.setTouchBar(touchBar);
+});
+
+app.on("will-quit", () => {
+  // Unregister a shortcut.
+  globalShortcut.unregister("Control+X");
 });

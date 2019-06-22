@@ -18,7 +18,9 @@
   "scripts": {
     "build": "tsc",
     "prepare": "tsc",
-    "start": "./bin/tbs-dock"
+    "start": "./bin/tbs-dock",
+    "dev": "electron lib/touchbar.js",
+    "watch": "tsc -w"
   },
   "dependencies": {
     "cross-spawn": "^6.0.5",
