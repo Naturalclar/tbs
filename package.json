@@ -2,7 +2,8 @@
   "name": "@naturalclar/tbs",
   "version": "0.0.1",
   "description": "my touch-bar shortcuts",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "author": "Jesse Katsumata <jesse.katsumata@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -10,8 +11,8 @@
     "open": "^6.3.0"
   },
   "scripts": {
-    "build": "tsc --declaration",
-    "prepare": "tsc --declaration"
+    "build": "tsc",
+    "prepare": "tsc"
   },
   "bin": {
     "gh": "./bin/gh",
