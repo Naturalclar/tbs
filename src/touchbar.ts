@@ -5,7 +5,7 @@ import {
   globalShortcut,
   TouchBarButtonConstructorOptions
 } from "electron";
-import { TWEETDECK, YOUTUBE, GITHUB, GMAIL, SLACK, PLAYMUSIC } from "./const";
+import { TWEETDECK, YOUTUBE, GITHUB, GMAIL, SLACK, PLAYMUSIC,SALESFORCE } from "./const";
 
 const { TouchBarButton } = TouchBar;
 
@@ -52,6 +52,13 @@ const buttons: TouchBarButtonConstructorOptions[] = [
     backgroundColor: "#f4522b",
     click: () => {
       window.loadURL(PLAYMUSIC);
+    }
+  },
+  {
+    label: "Salesforce",
+    backgroundColor: "#1798c1",
+    click: () => {
+      window.loadURL(SALESFORCE);
     }
   }
 ];
