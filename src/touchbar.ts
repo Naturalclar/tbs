@@ -6,7 +6,7 @@ import {
   Menu,
   MenuItem
 } from "electron";
-import { TWEETDECK, YOUTUBE, GITHUB, GMAIL, SLACK, PLAYMUSIC } from "./const";
+import { TWEETDECK, YOUTUBE, GITHUB, GMAIL, SLACK, PLAYMUSIC,SALESFORCE } from "./const";
 
 const { TouchBarButton } = TouchBar;
 
@@ -49,6 +49,11 @@ const buttons: ButtonProps[] = [
     label: "PlayMusic",
     backgroundColor: "#f4522b",
     url: PLAYMUSIC
+  },
+  {
+    label: "SalesForce",
+    backgroundColor: "#1798c1",
+    url: SALESFORCE
   }
 ];
 
