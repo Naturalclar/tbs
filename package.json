@@ -19,12 +19,11 @@
     "build": "tsc",
     "prepare": "tsc",
     "start": "./bin/tbs-dock",
-    "dev": "electron lib/touchbar.js",
+    "dev": "electron lib/index.js",
     "watch": "tsc -w"
   },
   "dependencies": {
     "cross-spawn": "^6.0.5",
-    "electron": "6.0.0-beta.9",
-    "open": "^6.3.0"
+    "electron": "6.0.0-beta.9"
   }
 }
