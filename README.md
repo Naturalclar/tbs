@@ -20,4 +20,7 @@ npx tbs-dock
 
 ## Keyboard shortcuts
 
-When the app is running, you can enter `Control+X` to toggle this dock.
+| Command                     | Description    |
+| --------------------------- | -------------- |
+| `Control+X`                 | Toggle display |
+| `Command+Shift+Left(Right)` | Switch Tabs    |
