@@ -6,66 +6,16 @@ import {
   Menu,
   MenuItem
 } from "electron";
-import {
-  TWEETDECK,
-  YOUTUBE,
-  GITHUB,
-  GMAIL,
-  SLACK,
-  PLAYMUSIC,
-  SALESFORCE
-} from "./const";
+
+import { store } from "./store";
 
 const { TouchBarButton } = TouchBar;
 
-let window: BrowserWindow;
 let activeIndex: number = 0;
 
-type ButtonProps = {
-  label: string;
-  backgroundColor: string;
-  url: string;
-};
-
-const buttons: ButtonProps[] = [
-  {
-    label: "YouTube",
-    backgroundColor: "#c4302b",
-    url: YOUTUBE
-  },
-  {
-    label: "TweetDeck",
-    backgroundColor: "#38A1F3",
-    url: TWEETDECK
-  },
-  {
-    label: "GitHub",
-    backgroundColor: "#333",
-    url: GITHUB
-  },
-  {
-    label: "Gmail",
-    backgroundColor: "#D44638",
-    url: GMAIL
-  },
-  {
-    label: "Slack",
-    backgroundColor: "#7c3085",
-    url: SLACK
-  },
-  {
-    label: "PlayMusic",
-    backgroundColor: "#f4522b",
-    url: PLAYMUSIC
-  },
-  {
-    label: "SalesForce",
-    backgroundColor: "#1798c1",
-    url: SALESFORCE
-  }
-];
-
 app.once("ready", () => {
+  const buttons = store.get("buttons");
+
   // Register a 'ControlOrControl+X' shortcut listener.
   const toggleShortcut = globalShortcut.register("Control+X", () => {
     window.isFocused() ? window.hide() : window.show();
@@ -123,7 +73,7 @@ app.once("ready", () => {
     }
   };
 
-  const m = Menu.buildFromTemplate([
+  const menu = Menu.buildFromTemplate([
     new MenuItem({
       label: "Default",
       submenu: [
@@ -145,7 +95,7 @@ app.once("ready", () => {
       ]
     })
   ]);
-  Menu.setApplicationMenu(m);
+  Menu.setApplicationMenu(menu);
   window.setTouchBar(touchBar);
 });
 
