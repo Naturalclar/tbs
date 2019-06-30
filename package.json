@@ -20,10 +20,37 @@
     "prepare": "tsc",
     "start": "./bin/tbs-dock",
     "dev": "electron lib/index.js",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --mac"
   },
-  "dependencies": {
-    "cross-spawn": "^6.0.5",
-    "electron": "6.0.0-beta.9"
+  "dependencies": { 
+    "cross-spawn": "^6.0.5"
+  },
+  "devDependencies": {
+    "electron": "6.0.0-beta.9",
+    "electron-builder": "^20.44.4"
+  },
+  "build":{
+    "appId": "com.naturalclar.tbs",
+    "productName":"TouchBarDock",
+    "copyright": "Copyright @2019 ${author}",
+    "mac":{
+      "category":"utils"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
   }
 }
