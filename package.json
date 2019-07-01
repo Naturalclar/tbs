@@ -1,6 +1,6 @@
 {
   "name": "@naturalclar/tbs",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "my touch-bar shortcuts",
   "homepage": "https://github.com/Naturalclar/tbs#readme",
   "repository": "https://github.com/Naturalclar/tbs.git",
@@ -24,19 +24,19 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder --mac"
   },
-  "dependencies": { 
+  "dependencies": {
     "cross-spawn": "^6.0.5"
   },
   "devDependencies": {
     "electron": "6.0.0-beta.9",
     "electron-builder": "^20.44.4"
   },
-  "build":{
+  "build": {
     "appId": "com.naturalclar.tbs",
-    "productName":"TouchBarDock",
+    "productName": "TouchBarDock",
     "copyright": "Copyright @2019 ${author}",
-    "mac":{
-      "category":"utils"
+    "mac": {
+      "category": "utils"
     },
     "dmg": {
       "contents": [
