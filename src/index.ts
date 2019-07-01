@@ -123,12 +123,15 @@ app.once("ready", () => {
     }
   };
 
-  const m = Menu.buildFromTemplate([
+  const menu = Menu.buildFromTemplate([
     new MenuItem({
       label: "Default",
       submenu: [
         NextTab,
         PrevTab,
+        { role: "hide" },
+        { role: "hideothers" },
+        { role: "close" },
         {
           role: "quit"
         }
@@ -145,7 +148,7 @@ app.once("ready", () => {
       ]
     })
   ]);
-  Menu.setApplicationMenu(m);
+  Menu.setApplicationMenu(menu);
   window.setTouchBar(touchBar);
 });
 
