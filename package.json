@@ -9,18 +9,15 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "bin": {
-    "gh": "./bin/gh",
-    "tbs-dock": "./bin/tbs-dock",
-    "td": "./bin/td",
-    "tw": "./bin/tw",
-    "yt": "./bin/yt"
+    "tbs-dock": "./bin/tbs-dock"
   },
   "scripts": {
     "build": "tsc",
     "prepare": "tsc",
     "start": "./bin/tbs-dock",
     "dev": "electron lib/index.js",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "clean": "rm -rf lib"
   },
   "dependencies": {
     "cross-spawn": "^6.0.5",
