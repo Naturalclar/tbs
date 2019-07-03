@@ -19,7 +19,7 @@
     "build": "tsc",
     "prepare": "tsc",
     "start": "./bin/tbs-dock",
-    "dev": "electron lib/index.js",
+    "dev": "ELECTRON_ENV=development electron lib/index.js",
     "watch": "tsc -w",
     "pack": "electron-builder --dir",
     "dist": "electron-builder --mac"

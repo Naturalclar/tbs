@@ -18,7 +18,8 @@ import {
 
 const { TouchBarButton } = TouchBar;
 
-let window: BrowserWindow;
+const isEnv = process.env.ELECTRON_ENV === "development";
+
 let activeIndex: number = 0;
 
 type ButtonProps = {
@@ -127,14 +128,13 @@ app.once("ready", () => {
     new MenuItem({
       label: "Default",
       submenu: [
+        { role: "about" },
         NextTab,
         PrevTab,
         { role: "hide" },
         { role: "hideothers" },
         { role: "close" },
-        {
-          role: "quit"
-        }
+        { role: "quit" }
       ]
     }),
     new MenuItem({
@@ -144,10 +144,31 @@ app.once("ready", () => {
         { role: "redo" },
         { role: "cut" },
         { role: "copy" },
-        { role: "paste" }
+        { role: "paste" },
+        { role: "selectall" }
+      ]
+    }),
+    new MenuItem({
+      label: "View",
+      submenu: [
+        { role: "reload" },
+        { role: "forcereload" },
+        { role: "togglefullscreen" },
+        { role: "zoomin" },
+        { role: "zoomout" }
       ]
     })
   ]);
+
+  // Enable Development Tool for development
+  if (isEnv) {
+    menu.append(
+      new MenuItem({
+        label: "Tools",
+        submenu: [{ role: "toggledevtools" }]
+      })
+    );
+  }
   Menu.setApplicationMenu(menu);
   window.setTouchBar(touchBar);
 });
