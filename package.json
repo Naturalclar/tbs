@@ -1,6 +1,6 @@
 {
   "name": "@naturalclar/tbs",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "my touch-bar shortcuts",
   "homepage": "https://github.com/Naturalclar/tbs#readme",
   "repository": "https://github.com/Naturalclar/tbs.git",
@@ -19,7 +19,7 @@
     "build": "tsc",
     "prepare": "tsc",
     "start": "./bin/tbs-dock",
-    "dev": "electron lib/index.js",
+    "dev": "ELECTRON_ENV=development electron lib/index.js",
     "watch": "tsc -w",
     "pack": "electron-builder --dir",
     "dist": "electron-builder --mac"
@@ -45,12 +45,15 @@
           "y": 150
         },
         {
-          "x": 240,
+          "x": 340,
           "y": 150,
           "type": "link",
           "path": "/Applications"
         }
       ]
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
