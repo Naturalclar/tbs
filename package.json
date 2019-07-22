@@ -9,11 +9,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "bin": {
-    "gh": "./bin/gh",
-    "tbs-dock": "./bin/tbs-dock",
-    "td": "./bin/td",
-    "tw": "./bin/tw",
-    "yt": "./bin/yt"
+    "tbs-dock": "./bin/tbs-dock"
   },
   "scripts": {
     "build": "tsc",
