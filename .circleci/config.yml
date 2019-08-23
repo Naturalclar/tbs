@@ -1,0 +1,28 @@
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:lts
+
+commands:
+  prepare:
+    steps:
+      - checkout
+
+jobs:
+  test:
+    executor:
+      name: default
+    steps:
+      - prepare
+      - run:
+          name: "Prepare"
+          command: yarn
+
+workflows:
+  version: 2.1
+  test_deploy:
+    jobs:
+      - test
