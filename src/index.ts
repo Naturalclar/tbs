@@ -132,7 +132,7 @@ app.once("ready", () => {
         NextTab,
         PrevTab,
         { role: "hide" },
-        { role: "hideothers" },
+        { role: "hideOthers" },
         { role: "close" },
         { role: "quit" }
       ]
@@ -145,17 +145,17 @@ app.once("ready", () => {
         { role: "cut" },
         { role: "copy" },
         { role: "paste" },
-        { role: "selectall" }
+        { role: "selectAll" }
       ]
     }),
     new MenuItem({
       label: "View",
       submenu: [
         { role: "reload" },
-        { role: "forcereload" },
+        { role: "forceReload" },
         { role: "togglefullscreen" },
-        { role: "zoomin" },
-        { role: "zoomout" }
+        { role: "zoomIn" },
+        { role: "zoomOut" }
       ]
     })
   ]);
@@ -165,7 +165,7 @@ app.once("ready", () => {
     menu.append(
       new MenuItem({
         label: "Tools",
-        submenu: [{ role: "toggledevtools" }]
+        submenu: [{ role: "toggleDevTools" }]
       })
     );
   }
